@@ -7,13 +7,8 @@
 	define('ROOT_CONTROLLER', ROOT_MVC . DIRECTORY_SEPARATOR  . 'c' . DIRECTORY_SEPARATOR);
 	define('ROOT_LIB',ROOT . DIRECTORY_SEPARATOR  . 'lib' . DIRECTORY_SEPARATOR);
 	define('CONFIG_FILE',ROOT . DIRECTORY_SEPARATOR . 'config.php');
-	define('DEBUG',true);
-	define('USER_FILE','/NSVN/htpasswd');
-	define('GROUP_FILE','/NSVN/authz');
-	define('WORKING_DIRECTORY','/var/www-projects');
-	$SVN_PATH = array('/SVN','/NSVN/svn');
 	
-		
+	require_once(ROOT . 'config.php');
 	require_once(ROOT_LIB . 'ts.php');
 	require_once(ROOT_LIB . 'proc.php');
 	require_once(ROOT_LIB . 'repository.php');
