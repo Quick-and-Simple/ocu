@@ -12,8 +12,9 @@
 
 	        function GET_logout() {
 			unset($_SERVER{'PHP_AUTH_USER'});
-			unset($_SERVER{'PHP_AUTH_PW'});			
-	                M_AUTH::validate();
+			unset($_SERVER{'PHP_AUTH_PW'});
+			redirect($this->gen_url('diff'));
+	                // M_AUTH::validate();
 	                return NO_VIEW;
 	        }
 		
