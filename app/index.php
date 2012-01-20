@@ -8,7 +8,7 @@
 	define('ROOT_LIB',ROOT . DIRECTORY_SEPARATOR  . 'lib' . DIRECTORY_SEPARATOR);
 	define('CONFIG_FILE',ROOT . DIRECTORY_SEPARATOR . 'config.php');
 	
-	require_once(ROOT . 'config.php');
+	require_once(ROOT . DIRECTORY_SEPARATOR . 'config.php');
 	require_once(ROOT_LIB . 'ts.php');
 	require_once(ROOT_LIB . 'proc.php');
 	require_once(ROOT_LIB . 'repository.php');
