@@ -11,10 +11,10 @@
 		- if (count($ctx->diff_result['files']))
 			%center
 				%a href='#' id=checkall
-					select all
-				/
+					select
+				%nbsp;
 				%a href='#' id=uncheckall
-					deselect all				
+					deselect
 				%br
 		- foreach($ctx->diff_result{'files'} as $f)
 			%input type='checkbox' name='path[]' value='#{$f}'
