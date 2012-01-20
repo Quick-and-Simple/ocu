@@ -21,6 +21,8 @@
 				.topbar  data-dropdown="dropdown"
 					.topbar-inner 
 						.container
+							%a.brand href=#{$ctx->gen_url('diff','logout',false)}
+								Logout
 							%ul
 								- foreach (M_REPO::repository_list() as $f)
 									%li

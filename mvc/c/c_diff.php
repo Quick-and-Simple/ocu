@@ -2,14 +2,18 @@
 	class C_DIFF extends CONTROLLER {
 		var $repo = false;
 		var $must_checkout = false;
+
 		function repository($id) {
 			$this->repo =  M_REPO::get($id);
 			if (!$this->repo) {
 				throw new Exception("cant get $id");
 			}
 		}		
+
 	        function GET_logout() {
-	                M_AUTH::require_auth();
+			unset($_SERVER{'PHP_AUTH_USER'});
+			unset($_SERVER{'PHP_AUTH_PW'});			
+	                M_AUTH::validate();
 	                return NO_VIEW;
 	        }
 		
@@ -17,6 +21,7 @@
 			$first = array_shift(M_REPO::repository_list());
 			$this->next_url('diff',$first[1]);
 		}		
+
 		function GET_diff($id) {
 			if (!$id)
 				not_foundx();
