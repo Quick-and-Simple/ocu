@@ -1,5 +1,6 @@
 <?php
 	/* example config file */
+	
 	define('DEBUG',false);
 	define('USER_FILE','/etc/subversion/htpasswd');
 	define('GROUP_FILE','/etc/subversion/authz');
