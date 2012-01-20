@@ -15,7 +15,7 @@
 			foreach ($lines as $l) {
 				@list($user,$pass) = @explode(":",$l);
 				if ($user == $_SERVER{'PHP_AUTH_USER'}) {
-					if ($_SERVER{'PHP_AUTH_PW'},preg_replace('/\$apr1\$(........).*/',"\\1",$pass)) == $pass) {
+					if (apr1($_SERVER{'PHP_AUTH_PW'},preg_replace('/\$apr1\$(........).*/',"\\1",$pass)) == $pass) {
 						return true;
 					}
 				}
