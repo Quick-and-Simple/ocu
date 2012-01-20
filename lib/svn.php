@@ -13,8 +13,8 @@
 		#	'files' => array of files which are modified
 		#	'raw'   => raw stdout output of the diff command (currently unparsed)
 		function diff() {
-			// $rc = $this->srun('diff','--old',$this->_dir,'--new',$this->_url);
-			$rc = $this->srun('diff','--new',$this->_dir,'--old',$this->_url);
+			$rc = $this->srun('diff','--old',$this->_dir,'--new',$this->_url);
+			// $rc = $this->srun('diff','--new',$this->_dir,'--old',$this->_url);
 			
 			$files = array();
 			

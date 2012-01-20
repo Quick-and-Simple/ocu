@@ -11,7 +11,7 @@
 		- if (count($ctx->diff_result['files']))
 			%input.checkall type='checkbox' name='not_used_chck_all'
 				select all
-			
+			%br
 		- foreach($ctx->diff_result{'files'} as $f)
 			%input type='checkbox' name='path[]' value='#{$f}'
 			%code
