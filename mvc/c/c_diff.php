@@ -7,11 +7,11 @@
 			if (!$this->repo) {
 				throw new Exception("cant get $id");
 			}
-		}
-                function GET_logout() {
-                        M_AUTH::require_auth();
-                        return NO_VIEW;
-                }
+		}		
+	        function GET_logout() {
+	                M_AUTH::require_auth();
+	                return NO_VIEW;
+	        }
 		
 		function GET_default() {
 			$first = array_shift(M_REPO::repository_list());

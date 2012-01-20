@@ -15,7 +15,7 @@
 			foreach ($lines as $l) {
 				@list($user,$pass) = @explode(":",$l);
 				if ($user == $_SERVER{'PHP_AUTH_USER'}) {
-					if (apr1($_SERVER{'PHP_AUTH_PW'},$pass)) == $pass) {
+					if (apr1($_SERVER{'PHP_AUTH_PW'},$pass) == $pass) {
 						return true;
 					}
 				}
