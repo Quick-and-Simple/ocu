@@ -13,11 +13,12 @@
 			$d = @file_get_contents(USER_FILE);
 			$lines = @explode("\n", $d);
 			foreach ($lines as $l) {
-				@list($user,$pass) = @explode(":",$line);
-				if ($user == $_SERVER{'PHP_AUTH_USER'}) 
-					if (apr1($_SERVER{'PHP_AUTH_PW'},preg_replace("/^\$apr1\$/",$pass) == $pass) {
+				@list($user,$pass) = @explode(":",$l);
+				if ($user == $_SERVER{'PHP_AUTH_USER'}) {
+					if ($_SERVER{'PHP_AUTH_PW'},preg_replace('/\$apr1\$(........).*/',"\\1",$pass) == $pass) {
 						return true;
 					}
+				}
 			}		
 			M_AUTH::require_auth();
 		}
