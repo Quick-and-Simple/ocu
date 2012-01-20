@@ -8,6 +8,9 @@
 				throw new Exception("cant get $id");
 			}
 		}
+		function GET_logout() {
+			
+		}
 		function GET_default() {
 			$first = array_shift(M_REPO::repository_list());
 			$this->next_url('diff',$first[1]);
