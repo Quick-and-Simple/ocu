@@ -15,6 +15,7 @@
 		function GET_diff($id) {
 			if (!$id)
 				not_foundx();
+			M_AUTH::must_have_access($id);							
 			$this->diff_result = false;
 			try {
 				$this->repository($id);				
@@ -27,6 +28,7 @@
 			}			
 		}
 		function POST_update($id) {
+			M_AUTH::must_have_access($id);
 			$path = @$_POST{'path'};
 			if (empty($path)) {
 				$path = array();
@@ -40,6 +42,7 @@
 			$this->next_url('diff',$id);			
 		}
 		function GET_checkout($id) {
+			M_AUTH::must_have_access($id);			
 			try {
 				$this->repository($id);		
 				$this->repo->checkout();

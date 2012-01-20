@@ -19,7 +19,7 @@
 					while (false !== ($entry = readdir($handle))) {
 						$f = $s . DIRECTORY_SEPARATOR . $entry;
 						$db = $f . DIRECTORY_SEPARATOR . "db";
-						if (is_dir($f) && is_dir($db) && !preg_match('/^\./',$entry)) {
+						if (is_dir($f) && is_dir($db) && !preg_match('/^\./',$entry) && M_AUTH::has_access($entry)) {
 							array_push($r,array($s,$entry));
 						}
 					}
