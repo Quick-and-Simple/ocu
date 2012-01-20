@@ -13,12 +13,13 @@
 			$d = @file_get_contents(USER_FILE);
 			$lines = @explode("\n", $d);
 			foreach ($lines as $l) {
-				list($user,$pass) = explode(":",$line);
+				@list($user,$pass) = @explode(":",$line);
 				if ($user == $_SERVER{'PHP_AUTH_USER'}) 
-					if (crypt($_SERVER{'PHP_AUTH_PW'}, substr($pass, 0, 2)) != $pass)
-						M_AUTH::require_auth();
-
-			}			
+					if (crypt($_SERVER{'PHP_AUTH_PW'}, substr($pass, 0, 2)) == $pass) {
+						return true;
+					}
+			}		
+			M_AUTH::require_auth();
 		}
 		static function must_have_access($where) {
 			if (!M_AUTH::has_access($where)) {
@@ -28,7 +29,7 @@
 		}
 		static function has_access($where) {
 			global $ACCESS_LIST;
-			return (@$ACCESS_LIST{$where}{$_SERVER{'PHP_AUTH_USER'} == 1);			
+			return (@$ACCESS_LIST{$where}{$_SERVER{'PHP_AUTH_USER'}} == 1);			
 		}
 		static function access_list() {
 			$d = @file_get_contents(GROUP_FILE);
